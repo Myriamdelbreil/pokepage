@@ -61,3 +61,5 @@ group :development do
   # gem "spring"
 end
 
+gem "bundler-audit"
+gem "brakeman"
