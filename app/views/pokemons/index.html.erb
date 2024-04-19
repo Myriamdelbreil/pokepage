@@ -1,0 +1,19 @@
+<h1>Hello</h1>
+
+<div>
+  <ol>
+    <%@pokemons.each do |pokemon|%>
+      <li>name: <%= pokemon.name %></li>
+        <ul>
+          <li>id: <%= pokemon.id %></li>
+          <li>types:
+              <% pokemon.types.each do |type| %>
+                <ul>
+                  <li><%= type.name %></li>
+                </ul>
+              <%end%>
+          </li>
+        </ul>
+    <%end%>
+  </ol>
+</div>
