@@ -14,12 +14,20 @@ class Type
   end
 
   def find_damaged_to(damage_relations)
+    return {} unless attributes["damage_relations"]
+ 
     damaged_types = attributes["damage_relations"].select { |relation| relation.in?(["double_damage_to", "half_damage_to", "no_damage_to"])}
+    return {} unless damaged_types
+ 
     names_of_damage_types(damaged_types)
   end
 
   def find_damaged_from(damaged_relations)
+    return {} unless attributes["damage_relations"]
+ 
     damaged_types = attributes["damage_relations"].select { |relation| relation.in?(["double_damage_from", "half_damage_from", "no_damage_from"])}
+    return {} unless damaged_types
+
     names_of_damage_types(damaged_types)
   end
 
