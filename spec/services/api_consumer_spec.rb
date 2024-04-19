@@ -18,7 +18,12 @@ require "rails_helper"
       end
     end
 
-    context "when an unexisting url" do
+    context "when resource doesn't exist" do
+      let(:url) { "https://pokeapi.co/api/v2/pokemon/#{::SecureRandom.hex(10)}" }
+
+      it "returns a 404" do
+        expect(subject.response.code).to eq("404")
+      end
     end
   end
 
