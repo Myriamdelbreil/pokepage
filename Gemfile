@@ -66,3 +66,4 @@ gem "bundler-audit"
 gem "brakeman"
 gem 'httparty'
 gem 'rubocop'
+gem "pg"
