@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Type, type: :model do
   subject { ::Type.new(name) }
 
-  let(:result) { ::ApiConsumer.new(::ApplicationHelper::URL + "/type/#{name}").call }
+  let(:result) { ::ApiConsumer.new("/type/#{name}").call }
 
   context "when type exists" do
     let(:name) { "ground" }

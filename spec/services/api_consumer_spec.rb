@@ -7,19 +7,11 @@ require "rails_helper"
     described_class.new(url).call
   end
 
-  let(:url) { "https://pokeapi.co/api/v2/pokemon/90"}
+  let(:url) { "/pokemon/90"}
 
   context "when unvalid url" do
-    context "when not an url" do
-      let(:url) { "fhff" }
-
-      it "raises an error" do
-        expect { subject }.to raise_error(::Errno::ECONNREFUSED)
-      end
-    end
-
     context "when resource doesn't exist" do
-      let(:url) { "https://pokeapi.co/api/v2/pokemon/#{::SecureRandom.hex(10)}" }
+      let(:url) { "/pokemon/#{::SecureRandom.hex(10)}" }
 
       it "returns a 404" do
         expect(subject.response.code).to eq("404")

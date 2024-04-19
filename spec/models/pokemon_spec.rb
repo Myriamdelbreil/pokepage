@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Pokemon, type: :model do
   subject { ::Pokemon.new(name) }
 
-  let(:result) { ::ApiConsumer.new(::ApplicationHelper::URL + "/pokemon/#{name}").call }
+  let(:result) { ::ApiConsumer.new("/pokemon/#{name}").call }
 
   context "when pokemon exists" do
     let(:name) { "pikachu" }

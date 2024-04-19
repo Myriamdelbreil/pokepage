@@ -4,33 +4,32 @@ class Pokemon
                 :weight,
                 :moves,
                 :types,
-                :name
-
-  def set_attributes_from_url(query)
-    @url = ::ApplicationHelper::URL + "/pokemon/#{query}"
-    self.class.const_set(:ATTRIBUTES, ::ApiConsumer.new(@url).call || {})
-  end
+                :name,
+                :attributes,
+                :id
 
   def initialize(query)
-    set_attributes_from_url(query)
     # we pass a query instead of name bc you can create one with its id
-    @name = ATTRIBUTES["name"]
-    @height = ATTRIBUTES["height"]
-    @is_default = ATTRIBUTES["is_default"]
-    @weight = ATTRIBUTES["weight"]
+
+    @attributes = ::ApiConsumer.new("/pokemon/#{query}").call || {}
+    @id = attributes["id"]
+    @name = attributes["name"]
+    @height = attributes["height"]
+    @is_default = attributes["is_default"]
+    @weight = attributes["weight"]
     @types = build_types
     @moves = find_moves
   end
 
   def build_types
-    return {} unless ATTRIBUTES["types"]
+    return {} unless attributes["types"]
 
-    ATTRIBUTES["types"].map { |type| type["type"]["name"] }.map { |name| ::Type.new(name) }
+    attributes["types"].map { |type| type["type"]["name"] }.map { |name| ::Type.new(name) }
   end
 
   def find_moves
-    return {} unless ATTRIBUTES["moves"]
+    return {} unless attributes["moves"]
 
-    ATTRIBUTES["moves"].map { |data| data.dig("move", "name") }
+    attributes["moves"].map { |data| data.dig("move", "name") }
   end
 end
