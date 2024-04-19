@@ -1,5 +1,4 @@
 class PokemonsController < ApplicationController
-
   def index
     results = ::ApiConsumer.new("/pokemon").call["results"]
 

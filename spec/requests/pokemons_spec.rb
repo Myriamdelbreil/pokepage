@@ -19,4 +19,11 @@ RSpec.describe "Pokemons", type: :request do
       end
     end
   end
+
+  describe "GET /show" do
+    # pending "add some examples (or delete) #{__FILE__}"
+    let(:url)
+    it "returns 200"
+    end
+  end
 end
