@@ -3,8 +3,10 @@ require 'httparty'
 class ApiConsumer
   include HTTParty
 
-  def initialize(url)
-    @url = url
+  URL = 'https://pokeapi.co/api/v2'
+
+  def initialize(url_path)
+    @url = URL + url_path
   end
 
   def call
