@@ -70,5 +70,10 @@ RSpec.describe 'Pokemons', type: :request do
         expect(response.body).to include(name)
       end
     end
+
+    it 'has option to go back to list' do
+      subject
+      expect(response.body).to include('<a href="/pokemons">Go back to list</a>')
+    end
   end
 end
