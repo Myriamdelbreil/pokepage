@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello and welcome to your wrapper for your pokedex !
 
-Things you may want to cover:
+## Setup needed :
+- Rails 7.0.8.1
+- Ruby 3.0.3
 
-* Ruby version
+## What is it ?
 
-* System dependencies
+This PokePage app is a wrapper for the famous pokeapi and therefore a boilerplate to implement/improve many things.
 
-* Configuration
+## Installation
 
-* Database creation
+To this is locally, please clone the repository in your computer.
+```bash
+gh repo clone Myriamdelbreil/pokepage
+cd <nom pokepage projet>
+bundle install
+rails s
+```
 
-* Database initialization
+Now, go to your localhost, port:3000 and you're ready to test it and implement more things if you want !
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Find out more
+[The PokeAPI](https://pokeapi.co/docs/v2#pokemon)
+And maybe simpler if you want to have fun in refactoring : you can use [Ruby gem PokeApi](https://github.com/rdavid1099/poke-api-v2)
