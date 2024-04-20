@@ -15,7 +15,7 @@ This PokePage app is a wrapper for the famous pokeapi and therefore a boilerplat
 To this is locally, please clone the repository in your computer.
 ```bash
 gh repo clone Myriamdelbreil/pokepage
-cd <nom pokepage projet>
+cd <pokepage>
 bundle install
 rails s
 ```
