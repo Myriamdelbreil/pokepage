@@ -18,6 +18,37 @@ RSpec.describe 'Pokemons', type: :request do
         expect(response.body).to include("name: #{result['name']}")
       end
     end
+
+    context 'when pagination' do
+      context 'when passing no offset params' do
+        it 'has expected next page link' do
+          subject
+          expect(response.body).not_to include('Previous page')
+          expect(response.body).to include('Next page')
+        end
+      end
+
+      context 'when passing offset params' do
+        context 'when there is still result to display in next page' do
+          let(:url) { '/pokemons?offset=100' }
+
+          it 'has pagination' do
+            subject
+            expect(response.body).to include('Next page')
+            expect(response.body).to include('Previous page')
+          end
+        end
+
+        context 'when there is no more result to display in next page' do
+          let(:url) { '/pokemons?offset=1000000' }
+          it 'has pagination' do
+            subject
+            expect(response.body).to include('Previous page')
+            expect(response.body).not_to include('Next page')
+          end
+        end
+      end
+    end
   end
 
   describe 'GET /show' do
