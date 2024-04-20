@@ -14,7 +14,7 @@ RSpec.describe Pokemon, type: :model do
       expect(subject.weight).to eq(result["weight"])
       expect(subject.name).to eq(result["name"])
       expect(subject.moves).to match_array(result["moves"].map { |move| move["move"]["name"] })
-      # expect(subject.types.pluck("name")).to eq(result["types"].pluck("name"))
+      expect(subject.types.map { |type| type.name }).to match_array(result["types"].map { |type| type["type"]["name"] })
     end
   end
 

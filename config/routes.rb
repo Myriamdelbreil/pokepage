@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources 'pokemons', only: %i[index show]
+  resources 'pokemons', only: %i[index show], param: :name
 end

@@ -14,6 +14,9 @@
               <%end%>
           </li>
         </ul>
+        <%= link_to pokemon_path(name: pokemon.name) do %>
+          <button>find more</button>
+        <% end%>
     <%end%>
   </ol>
 </div>
