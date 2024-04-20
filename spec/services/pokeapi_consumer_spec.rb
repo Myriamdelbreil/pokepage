@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-::RSpec.describe ::ApiConsumer, type: :service do
+::RSpec.describe ::PokeApiConsumer, type: :service do
   subject do
     described_class.new(url).call
   end

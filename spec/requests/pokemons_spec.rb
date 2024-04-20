@@ -5,7 +5,7 @@ RSpec.describe 'Pokemons', type: :request do
     subject { get url }
 
     let(:url) { '/pokemons' }
-    let(:result) { ::ApiConsumer.new('/pokemon/').call['results'] }
+    let(:result) { ::PokeApiConsumer.new('/pokemon/').call['results'] }
 
     it 'returns 200' do
       subject
