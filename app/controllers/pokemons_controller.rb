@@ -3,7 +3,7 @@
 class PokemonsController < ApplicationController
   def index
     @offset = params[:offset].nil? ? '0' : params[:offset]
-    response = ::ApiConsumer.new("/pokemon?offset=#{@offset}&limit=20").call
+    response = ::PokeApiConsumer.new("/pokemon?offset=#{@offset}&limit=20").call
     results = response['results']
 
     @pokemons = results.pluck('name').map do |name|

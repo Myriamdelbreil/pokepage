@@ -1,6 +1,6 @@
-require 'httparty'
+# frozen_string_literal: true
 
-class ApiConsumer
+class PokeApiConsumer
   include HTTParty
 
   URL = 'https://pokeapi.co/api/v2'
@@ -10,6 +10,6 @@ class ApiConsumer
   end
 
   def call
-    ::HTTParty.get(@url)
+    ::ApiConsumer::Client.new(@url).fetch_data
   end
 end

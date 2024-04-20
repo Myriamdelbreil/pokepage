@@ -6,7 +6,7 @@ class Type
                 :attributes
 
   def initialize(query)
-    @attributes = ::ApiConsumer.new("/type/#{query}").call || {}
+    @attributes = ::PokeApiConsumer.new("/type/#{query}").call || {}
     @name = attributes["name"]
     @damage_to = find_damaged_to
     @damage_from = find_damaged_from

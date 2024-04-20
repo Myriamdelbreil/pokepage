@@ -12,7 +12,7 @@ class Pokemon
   def initialize(query)
     # we pass a query instead of name bc you can create one with its id
 
-    @attributes = ::ApiConsumer.new("/pokemon/#{query}").call || {}
+    @attributes = ::PokeApiConsumer.new("/pokemon/#{query}").call || {}
     @id = attributes['id']
     @name = attributes['name']
     @height = attributes['height']
