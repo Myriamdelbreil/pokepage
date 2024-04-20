@@ -1,6 +1,12 @@
 <h1>Hello</h1>
 
 <div>
+  <% if @previous_page.present? %>
+    <%= link_to "Previous page", pokemons_path(offset: @offset.to_i - 20) %>
+  <% end %>
+  <% if @next_page.present? %>
+    <%= link_to "Next page", pokemons_path(offset: @offset.to_i + 20)%>
+  <% end %>
   <ol>
     <%@pokemons.each do |pokemon|%>
       <li>name: <%= pokemon.name %></li>
