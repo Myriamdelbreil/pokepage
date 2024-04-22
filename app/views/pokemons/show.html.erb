@@ -10,6 +10,7 @@
     <li>id: <%= @pokemon.id %> </li>
     <li>height: <%= @pokemon.height %></li>
     <li>weight: <%= @pokemon.weight %></li>
+    <li>default in Pokeworld: <%= @pokemon.is_default %></li>
     <li>types:
       <% @pokemon.types.each do |type| %>
         <ul>
@@ -47,9 +48,9 @@
                     <%= no_damage_from.empty? ? 'no pokemon type' : no_damage_from.join(', ')%>
                 </ol>
               </li>
+              <li>type's moves: <%= type.moves.empty? ? 'no moves found' : type.moves.join(', ') %></li>
             </ul>
           </li>
-          <li>type's moves: <%= type.moves.empty? ? 'no moves found' : type.moves.join(', ') %></li>
         </ul>
       <% end %>
     </li>
