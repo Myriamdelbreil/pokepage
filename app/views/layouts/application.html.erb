@@ -15,7 +15,11 @@
 
   <body>
     <div class="navbar">
-      <div class="navbar-title"><h1>PokéWrapper</h1></div>
+      <div class="navbar-title">
+        <h1>
+          <%= link_to "PokéWrapper", pokemons_path %>
+        </h1>
+      </div>
       <div class="navbar-search">
         <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
           <div class="search-form-control form-group">
@@ -27,7 +31,9 @@
         </form>
       </div>
     </div>
-    <%= yield %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
 
     <div class="footer">
       <div class="footer-links">
