@@ -1,28 +1,37 @@
-<h1>Hello</h1>
-
-<div>
+<div class="navigation-buttons">
   <% if @previous_page.present? %>
     <%= link_to "Previous page", pokemons_path(offset: @offset.to_i - 20) %>
   <% end %>
   <% if @next_page.present? %>
     <%= link_to "Next page", pokemons_path(offset: @offset.to_i + 20)%>
   <% end %>
-  <ol>
-    <%@pokemons.each do |pokemon|%>
-      <li>name: <%= pokemon.name %></li>
-        <ul>
-          <li>id: <%= pokemon.id %></li>
-          <li>types:
-              <% pokemon.types.each do |type| %>
-                <ul>
-                  <li><%= type.name %></li>
-                </ul>
-              <%end%>
-          </li>
-        </ul>
-        <%= link_to pokemon_path(name: pokemon.name) do %>
-          <button>find more</button>
-        <% end%>
-    <%end%>
-  </ol>
+</div>
+
+<div class= "card-grid">
+  <%@pokemons.each do |pokemon|%>
+    <div class="card-product">
+      <%=image_tag(pokemon.image) %>
+      <div class="card-product-infos">
+        <div class="card-product-column">
+          <h2><%= pokemon.name.capitalize %></h2>
+          <p>id: <%= pokemon.id %></p>
+          <p>types:
+            <% types_names = [] %>
+            <%= pokemon.types.map { |type| type.name }.join(', ')%></p>
+        </div>
+        <div class="card-product-column button-div">
+          <%= link_to "find more", pokemon_path(name: pokemon.name), class: "btn card-product-button" %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<div class="navigation-buttons">
+  <% if @previous_page.present? %>
+    <%= link_to "Previous page", pokemons_path(offset: @offset.to_i - 20) %>
+  <% end %>
+  <% if @next_page.present? %>
+    <%= link_to "Next page", pokemons_path(offset: @offset.to_i + 20)%>
+  <% end %>
 </div>

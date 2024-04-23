@@ -15,7 +15,7 @@ RSpec.describe 'Pokemons', type: :request do
     it 'has accurate body' do
       subject
       result.each do |result|
-        expect(response.body).to include("name: #{result['name']}")
+        expect(response.body).to include("<h2>#{result['name'].capitalize}</h2>")
       end
     end
 

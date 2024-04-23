@@ -1,0 +1,259 @@
+// Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
+
+// External libraries
+// @import "bootstrap/scss/bootstrap";
+// @import "font-awesome-sprockets";
+@import "font-awesome";
+// @import "mapbox-gl/dist/mapbox-gl";
+// @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
+// Your CSS partials
+// @import "components/index";
+// @import "pages/index";
+
+
+body {
+  background-color: #F06D56;
+  font-family: "Kanit", sans-serif;
+ }
+
+ .navbar{
+  justify-content: space-between;
+  background: #F6BD20;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  padding: 1vw 2vh;
+  margin: 0 0 1vh 0;
+ }
+
+ .navbar .navbar-title{
+  width: 33vw;
+  justify-content: center;
+  font-family: "Press Start 2P", system-ui;
+  color: white;
+ }
+
+ .navbar .navbar-search{
+  display: flex;
+  justify-content: flex-end;
+  width: 33vw;
+ }
+
+ .navigation-buttons{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 16px;
+  font-family: "Press Start 2P", system-ui;
+ }
+
+ .navigation-buttons a {
+  text-decoration: none;
+  color: #F06D56;
+  padding: 16px;
+  border-radius: 20vw;
+  background: white;
+  transition: background 0.3s ease;
+ }
+
+ .navigation-buttons a:hover {
+  text-decoration: none;
+  color: white;
+  padding: 16px;
+  border-radius: 20vw;
+  background: #F6BD20;
+  transition: background ease;
+ }
+
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  margin: 0 auto;
+  max-width: 1200px;
+ }
+
+ .card-product {
+  overflow: hidden;
+  height: 130px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding: 5vh;
+  border-radius: 20vw;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.card-product-column {
+  width: 100%;
+}
+
+.button-div a{
+  text-decoration: none;
+}
+
+.btn {
+  font-family: "Press Start 2P", system-ui;
+  color: white;
+  border-radius: 20vw;
+  background: #F6BD20;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.card-product-button {
+    padding: 30px 15px;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #F6D63F;
+    color: white;
+}
+
+.footer {
+  background: #F6BD20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: #F06D56;
+  font-family: "Press Start 2P", system-ui;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: #F06D56;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  color: white;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+.simple_form {
+  width: 100%;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #F06D56;
+  width: 98%;
+  background-color: #F06D56;
+  border-radius: 20vw;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid white;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.btn .search-btn{
+  padding: 1vw 2vh;
+}
+
+
+.show h1 {
+  color: white;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.show .show-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+  margin: 5vw 5vh;
+}
+
+.show-card {
+  overflow: hidden;
+  // background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 20vw;
+  height: 50vh;
+}
+
+.show-card > .show-card-title{
+  font-family: "Press Start 2P", system-ui;
+  font-weight: bold;
+  background-color: white;
+  text-align: center;
+  color: #F06D56;
+  height: 30%;
+}
+
+.show-card > .show-card-attributes img {
+  // width: 100%;
+  // height: 100%;
+  // object-fit: cover;
+  position: relative;
+  bottom: 50px;
+  left: 40%;
+}
+
+.show-card > .show-card-attributes {
+  display: flex;
+
+}
