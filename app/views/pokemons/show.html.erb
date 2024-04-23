@@ -1,58 +1,56 @@
-<%= link_to "Go back to list", pokemons_path %>
+<div class="navigation-buttons">
+  <%= link_to "Go back to list", pokemons_path %>
+</div>
 
-<% if @pokemon.name.blank? %>
-  <h1>no pokemon found!</h1>
-<% else %>
-  <h1><%= @pokemon.name%></h1>
-  <%=image_tag(@pokemon.image) %>
-  <h2>Attributes</h2>
-  <ul>
-    <li>id: <%= @pokemon.id %> </li>
-    <li>height: <%= @pokemon.height %></li>
-    <li>weight: <%= @pokemon.weight %></li>
-    <li>default in Pokeworld: <%= @pokemon.is_default %></li>
-    <li>types:
+<div class="show">
+  <% if @pokemon.name.blank? %>
+    <h1>No pokemon found with name <%= params[:name] %>!</h1>
+  <% else %>
+    <h1><%= @pokemon.name.capitalize %></h1>
+    <div style="display: flex; justify-content: center">
+      <div class="show-card">
+        <h3 class="show-card-title">
+          Main attributes
+        </h3>
+        <div class="show-card-attributes">
+          <%=image_tag(@pokemon.image) %>
+          <ul>
+            <li>id: <%= @pokemon.id %> </li>
+            <li>height: <%= @pokemon.height %></li>
+            <li>weight: <%= @pokemon.weight %></li>
+            <li>default in Pokeworld: <%= @pokemon.is_default %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="show-grid">
       <% @pokemon.types.each do |type| %>
-        <ul>
-          <li>type name: <%= type.name %>:
-            <ul>
-              <li>damages to:
-                <% damage_to = type.damage_to %>
-                <ol>
-                  <li>double damage to:
-                    <% double_damage_to = damage_to['double_damage_to'] %>
-                    <%= double_damage_to.empty? ? 'no pokemon type' : double_damage_to.join(', ') %>
-                  </li>
-                  <li>half damage to:
-                    <% half_damage_to = damage_to['half_damage_to'] %>
-                    <%= half_damage_to.empty? ? 'no pokemon type' : half_damage_to.join(', ')%>
-                  </li>
-                  <li>no damage to:
-                    <% no_damage_to = damage_to['no_damage_to'] %>
-                    <%= no_damage_to.empty? ? 'no pokemon type' : no_damage_to.join(', ')%>
-                </ol>
-              </li>
-              <li>damages from:
-                <% damage_from = type.damage_from %>
-                <ol>
-                  <li>double damage from:
-                    <% double_damage_from = damage_from['double_damage_from'] %>
-                    <%= double_damage_from.empty? ? 'no pokemon type' : double_damage_from.join(', ') %>
-                  </li>
-                  <li>half damage from:
-                    <% half_damage_from = damage_from['half_damage_from'] %>
-                    <%= half_damage_from.empty? ? 'no pokemon type' : half_damage_from.join(', ')%>
-                  </li>
-                  <li>no damage from:
-                    <% no_damage_from = damage_from['no_damage_from'] %>
-                    <%= no_damage_from.empty? ? 'no pokemon type' : no_damage_from.join(', ')%>
-                </ol>
-              </li>
-              <li>type's moves: <%= type.moves.empty? ? 'no moves found' : type.moves.join(', ') %></li>
-            </ul>
-          </li>
-        </ul>
+        <div class="show-card">
+          <h3 class="show-card-title"><%= type.name.capitalize %></h3>
+          <div class="show-card-attributes">
+            <div class="show-list-attributes">
+              <h4>Damage to:</h4>
+              <% damage_to = type.damage_to %>
+              <ul>
+                <% damage_to.each do |k, v| %>
+                  <li><%= "#{k.humanize}: #{v.join(', ')}" %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="show-list-attributes">
+              <h4>Damage from:</h4>
+              <% damage_from = type.damage_from %>
+              <ul>
+                <% damage_from.each do |k, v| %>
+                  <% v = v.blank? ? "no pokemon" : v.join(', ') %>
+                  <li><%= "#{k.humanize}: #{v}" %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </li>
-  </ul>
-<% end %>
+    </div>
+
+  <% end %>
+</div>
