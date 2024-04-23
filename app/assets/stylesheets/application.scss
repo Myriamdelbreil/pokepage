@@ -18,6 +18,11 @@
 body {
   background-color: #F06D56;
   font-family: "Kanit", sans-serif;
+  white-space: normal;
+ }
+
+ .content-wrapper{
+  min-height: calc(80vh - 70px - 80px);
  }
 
  .navbar{
@@ -36,6 +41,11 @@ body {
   width: 33vw;
   justify-content: center;
   font-family: "Press Start 2P", system-ui;
+  color: white;
+ }
+
+ .navbar .navbar-title a{
+  text-decoration: none;
   color: white;
  }
 
@@ -218,6 +228,7 @@ body {
 .show h1 {
   color: white;
   font-family: "Press Start 2P", system-ui;
+  text-align: center;
 }
 
 .show .show-grid {
@@ -231,8 +242,9 @@ body {
   overflow: hidden;
   // background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 20vw;
-  height: 50vh;
+  border-radius: 20vh;
+  width: 45vw;
+  padding-bottom: 5vh;
 }
 
 .show-card > .show-card-title{
@@ -241,19 +253,23 @@ body {
   background-color: white;
   text-align: center;
   color: #F06D56;
-  height: 30%;
+  height: 15%;
+  margin-top: 0px;
+  padding: 5vh 0vh;
 }
 
 .show-card > .show-card-attributes img {
-  // width: 100%;
-  // height: 100%;
-  // object-fit: cover;
   position: relative;
-  bottom: 50px;
+  bottom: 80px;
   left: 40%;
 }
 
 .show-card > .show-card-attributes {
   display: flex;
 
+}
+
+.show-card-attributes > .show-list-attributes {
+  display: block;
+  padding: 1vh 5vw;
 }

@@ -52,28 +52,46 @@ RSpec.describe 'Pokemons', type: :request do
   end
 
   describe 'GET /show' do
-    subject { get url, params: params }
-    let(:params) { { name: 'bulbasaur' } }
-    let(:url) { '/pokemons/1' }
+    subject { get url }
+    let(:url) { "/pokemons/#{params[:name]}" }
     let(:pokemon) { Pokemon.new(params[:name]) }
-
-    it 'returns 200' do
-      subject
-      expect(response.status).to eq(200)
-    end
-
-    it 'returns info about the pokemon' do
-      subject
-      expect(response.body).to include(params[:name])
-      expect(response.body).to include("height: #{pokemon.height}")
-      pokemon.types.map { |type| type.name }.each do |name|
-        expect(response.body).to include(name)
-      end
-    end
+    let(:params) { { name: 'ghjk' } }
 
     it 'has option to go back to list' do
       subject
       expect(response.body).to include('<a href="/pokemons">Go back to list</a>')
+    end
+
+    context 'when pokemon not found' do
+      it 'returns 200' do
+        subject
+        expect(response.status).to eq(200)
+      end
+
+      it "returns 'Pokemon not found' message" do
+        puts params[:name]
+        puts "hello #{pokemon.name}"
+        subject
+        expect(response.body).to include("No pokemon found with name #{params[:name]}!")
+      end
+    end
+
+    context 'when pokemon found' do
+      let(:params) { { name: 'bulbasaur' } }
+
+      it 'returns 200' do
+        subject
+        expect(response.status).to eq(200)
+      end
+
+      it 'returns info about the pokemon' do
+        subject
+        expect(response.body).to include(params[:name].capitalize)
+        expect(response.body).to include("height: #{pokemon.height}")
+        pokemon.types.map { |type| type.name }.each do |name|
+          expect(response.body).to include(name)
+        end
+      end
     end
   end
 end
