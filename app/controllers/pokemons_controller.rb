@@ -14,6 +14,7 @@ class PokemonsController < ApplicationController
   end
 
   def show
-    @pokemon = ::Pokemon.new(params[:name])
+    name = params[:pokemon].present? ? params[:pokemon][:name] : params[:name]
+    @pokemon = ::Pokemon.new(name)
   end
 end
